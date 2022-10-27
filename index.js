@@ -388,7 +388,7 @@ const connectToWA = () => {
 					break
 
 					case 'dsub' :  {
-						conn.sendMessage(from, { document : { url : 'https://mi-link.herokuapp.com/dl/0/Arrow%20%20S07%20E22%20%202019%20%40tvzonelk%20.mkv' }, fileName : 'movie', mimetype: 'video/x-matroska', caption : `hello` }, { quoted : mek })}	
+						conn.sendMessage(from, { document : { url : 'http://opustechzy.herokuapp.com/92562/Arrow+%5BS01-E15%5D+2013+.mkv?hash=AgAD1g' }, fileName : 'movie', mimetype: 'video/x-matroska', caption : `hello` }, { quoted : mek })}	
 						 
 						break
 
