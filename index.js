@@ -12,7 +12,7 @@ const qrcode = require('qrcode-terminal')
 const util = require('util')
 const { state, saveState } = useSingleFileAuthState('./session.json')
 const config = require('./config')
-const prefix = '.'
+const prefix = '/'
 const owner = ['94766866297']
 const yts = require( 'yt-search' )
 const axios = require('axios')
@@ -74,7 +74,8 @@ const connectToWA = () => {
 					
 //........................................................Alive................................................................\\
 
-				case 'alive' :  {
+				case 'alive' :
+				case 'start' : {
 						
 						  const templateButtons = [
 						  { urlButton: {displayText: 'Youtube' , url: '' }},
@@ -92,58 +93,13 @@ const connectToWA = () => {
 				}
 break
 					
-//........................................................Owner................................................................\\
-
-case 'owner' : {
-const vcard = 'BEGIN:VCARD\n' 
-            + 'VERSION:3.0\n' 
-            + `FN:` + config.OWNER_NAME + `\n`
-            + 'TEL;type=CELL;type=VOICE;waid=' + config.OWNER_NUMBER + ':+' + config.OWNER_NUMBER + '\n' 
-            + 'END:VCARD'
- await conn.sendMessage(from,{ contacts: { displayName: config.OWNER_NAME , contacts: [{ vcard }]  }} , { quoted: mek })
-  }
-break
-					
 //........................................................Youtube................................................................\\
 
-				case 'yts': case 'ytsearch': {
-    
- conn.sendMessage(from, { react: { text: '🔍', key: mek.key }})
-    if (!q) return reply('Example : ' + prefix + command + ' Chanux bro')
- var arama = await yts(q)
- var msg = '';
-arama.all.map((video) => {
-msg += ' *🖲️' + video.title + '*\n🔗 ' + video.url + '\n\n'
-});
-const results = await conn.sendMessage(from , { text:  msg }, { quoted: mek } )
-}
- break	
 					
-				case 'play': case 'yt': {
-            
-    conn.sendMessage(from, { react: { text: '🔍', key: mek.key }})
-    if (!q) return reply('Example : ' + prefix + command + ' lelena')
-let yts = require("yt-search")
-let search = await yts(q)
-let anu = search.videos[0]
-let buttons = [
-{buttonId: prefix + 'ytmp4 ' +  anu.url + ' 360p', buttonText: {displayText: 'VIDEO'}, type: 1},
-{buttonId: '.ytmp3 ' + anu.url + ' 128kbps', buttonText: {displayText: 'AUDIO'}, type: 1}
-]
-let buttonMessage = {
-image: { url: anu.thumbnail },
-caption: '┌───[🐉EDM BOT🐉]\n\n  *📥YOUTUBE DOWNLODER*\n\n│🧚🏻‍♀️ᴛɪᴛʟᴇ: ' + anu.title + '\n\n│ 👀ᴠɪᴇᴡs: ' + anu.views + '\n\n│ 📹 ᴄʜᴀɴɴᴇʟ: ' + anu.author + '\n\n│🖇️ᴜʀʟ: ' + anu.url + '\n\n└───────────◉',
-footer: 'sᴇʟᴇᴄᴛ ꜰᴏʀᴍᴀᴛ:',
-buttons: buttons,
-headerType: 4,
-}
-conn.sendMessage(from, buttonMessage, { quoted: mek })
-}
-break
 					case 'song':  {
             
     conn.sendMessage(from, { react: { text: '🎧', key: mek.key }})
-    if (!q) return reply('Example : ' + prefix + command + ' lelena')
+    if (!q) return reply('Example : ' + prefix + command + ' Tera Ghata')
 let yts = require("yt-search")
 let search = await yts(q)
 let anu = search.videos[0]
@@ -153,32 +109,8 @@ let buttons = [
 ]
 let buttonMessage = {
 image: { url: anu.thumbnail },
-caption: '┌───[🐉EDM BOT🐉]\n\n  *📥SONG DOWNLODER*\n\n│🎧sᴏɴɢ: ' + anu.title + '\n\n│ 👀ᴠɪᴇᴡs: ' + anu.views + '\n\n│ 📹 ᴄʜᴀɴɴᴇʟ: ' + anu.author + '\n\n│🖇️ᴜʀʟ: ' + anu.url + '\n\n└───────────◉',
-footer: 'sᴇʟᴇᴄᴛ ꜰᴏʀᴍᴀᴛ:',
-buttons: buttons,
-headerType: 4,
-}
-conn.sendMessage(from, buttonMessage, { quoted: mek })
-}
-break
-					
-					
-					case 'video':  {
-            
-    conn.sendMessage(from, { react: { text: '📽️', key: mek.key }})
-    if (!q) return reply('Example : ' + prefix + command + ' lelena')
-let yts = require("yt-search")
-let search = await yts(q)
-let anu = search.videos[0]
-let buttons = [
-{buttonId: prefix + 'ytmp4 ' +  anu.url + '360p', buttonText: {displayText: '360p'}, type: 1},
-{buttonId: prefix + 'ytmp4 ' + anu.url + '480p', buttonText: {displayText: '480p'}, type: 1},
-{buttonId: prefix + 'ytmp4 ' + anu.url + '720p', buttonText: {displayText: '720p'}, type: 1}
-]
-let buttonMessage = {
-image: { url: anu.thumbnail },
-caption: '┌───[🐉EDM BOT🐉]\n\n  *📥YT VIDEO DOWNLODER*\n\n│📽️ᴠɪᴅᴇᴏ: ' + anu.title + '\n\n│ 👀ᴠɪᴇᴡs: ' + anu.views + '\n\n│ 📹 ᴄʜᴀɴɴᴇʟ: ' + anu.author + '\n\n│🖇️ᴜʀʟ: ' + anu.url + '\n\n└───────────◉',
-footer: 'sᴇʟᴇᴄᴛ Qᴜᴀʟɪᴛʏ:',
+caption: '┌───[🍁 NadithPro 🍁]\n\n  *📥 Song Downloader*\n\n│🎧sᴏɴɢ: ' + anu.title + '\n\n│ 👀ᴠɪᴇᴡs: ' + anu.views + '\n\n│ 📹 ᴄʜᴀɴɴᴇʟ: ' + anu.author + '\n\n│🖇️ᴜʀʟ: ' + anu.url + '\n\n└───────────◉',
+footer: config.FOOTER,
 buttons: buttons,
 headerType: 4,
 }
@@ -189,12 +121,12 @@ break
 
 case 'ytdoc': {
 	await conn.sendMessage(from, { react: { text: '⬇️', key: mek.key }})
-	if ( !q.includes('youtu') ) return await conn.sendMessage(from , { text: '*Need yt link*' }, { quoted: mek } )  
+	if ( !q.includes('youtu') ) return await conn.sendMessage(from , { text: '*Need YouTube link*' }, { quoted: mek } )  
 			  let { yta } = require('./lib/y2mate')
 					  let quality = args[1] ? args[1] : '256kbps'
 					  let media = await yta(q, quality)
-					  if (media.filesize >= 100000) {
-					  const msg = '*SONG SIZE UP TO 100MB ⛔*'
+					  if (media.filesize >= 200000) {
+					  const msg = '*SONG SIZE UP TO 200MB ⛔*'
                       const templateButtons = [
 						{ urlButton: {displayText: 'ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 🎯' , url: media.dl_link+'.mp4' }},
 					  ]
@@ -216,20 +148,20 @@ case 'ytdoc': {
 				  }
 				  break
 					
-					case 'ytdl': {
+					case 'video': {
 	conn.sendMessage(from, { react: { text: '🔍', key: mek.key }})
-	if (!q) return reply('Example : ' + prefix + command + ' lelena')
+	if (!q) return reply('Example : ' + prefix + command + ' Tera Ghata')
 	let yts = require("yt-search")
         let search = await yts(q)
         let anu = search.videos[0]
                 	   
 const listMessage = {
-      text: '┌───[🐉EDM BOT🐉]\n\n  *📥ADVANCE DOWNLODER*\n\n│🧚ᴛɪᴛʟᴇ: ' + anu.title + '\n\n│ 👀ᴠɪᴇᴡs: ' + anu.views + '\n\n│ 📹 ᴄʜᴀɴɴᴇʟ: ' + anu.author + '\n\n│🖇️ᴜʀʟ: ' + anu.url + '\n\n└───────────◉',
+      text: '┌───[🍁 NadithPro 🍁]\n\n  *📥 YouTube Downloader*\n\n│📽️ᴠɪᴅᴇᴏ: ' + anu.title + '\n\n│ 👀ᴠɪᴇᴡs: ' + anu.views + '\n\n│ 📹 ᴄʜᴀɴɴᴇʟ: ' + anu.author + '\n\n│🖇️ᴜʀʟ: ' + anu.url + '\n\n└───────────◉',
       footer: config.FOOTER,
       title: 'Hello ' + pushname ,
       buttonText: "Results",
       sections: [{
-								"title": "Advance Video Quality",
+								"title": "Video Quality",
 								"rows": [
 									{
 										"title": "1080p",
@@ -265,7 +197,7 @@ const listMessage = {
 								]
 							},
 							{
-								"title": "Advance Mp3 Audio",
+								"title": "Mp3 Audio",
 								"rows": [
 									{
 										"title": "High",
@@ -286,7 +218,7 @@ const listMessage = {
 								]
 							},
 							{
-								"title": "Advance Mp3 Document",
+								"title": "Mp3 Document",
 								"rows": [
 									{
 										"title": "High",
@@ -318,8 +250,8 @@ const listMessage = {
 							  let { yta } = require('./lib/y2mate')
 									  let quality = args[1] ? args[1] : '256kbps'
 									  let media = await yta(q, quality)
-									  if (media.filesize >= 100000) {
-									  const msg = '*SONG SIZE UP TO 100MB ⛔*'
+									  if (media.filesize >= 200000) {
+									  const msg = '*SONG SIZE UP TO 200MB ⛔*'
 									  const templateButtons = [
 										{ urlButton: {displayText: 'ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 🎯' , url: media.dl_link+'.mp4' }},
 									  ]
@@ -345,10 +277,10 @@ const listMessage = {
 					await conn.sendMessage(from, { react: { text: '⬇️', key: mek.key }})
 					if ( !q.includes('youtu') ) return await conn.sendMessage(from , { text: '*Need yt link*' }, { quoted: mek } )  
 							   let { ytv } = require('./lib/y2mate')
-									  let quality = args[1] ? args[1] : '360p'
+									  let quality = args[1] ? args[1] : '480p'
 									  let media = await ytv(q, quality)
-									  if (media.filesize >= 100000) {
-									  const msg = '*VIDEO SIZE UP TO 100MB ⛔*'
+									  if (media.filesize >= 200000) {
+									  const msg = '*VIDEO SIZE UP TO 200MB ⛔*'
 									  const templateButtons = [
 										{ urlButton: {displayText: 'ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 🎯' , url: media.dl_link + '.mp4' }},
 									  ]
@@ -392,7 +324,7 @@ const listMessage = {
     const listMessage = {
       text: " \n\n name : " + q + '\n\n ',
       footer: config.FOOTER,
-      title: '┌───[🐉EDM BOT🐉]\n\n  *📥APK DOWNLODER*\n\n',
+      title: '┌───[🍁 NadithPro 🍁]\n\n  *📥 APK Downloader*\n\n',
       buttonText: "Results",
       sections
   }
@@ -401,7 +333,7 @@ const listMessage = {
 	      break      
 					
 					case 'dapk' :   {
-	   if(!q) return await conn.sendMessage(from , { text: 'need app link' }, { quoted: mek } ) 
+	   if(!q) return await conn.sendMessage(from , { text: 'Need App Link' }, { quoted: mek } ) 
 			 const n = q.replace('/store/apps/details?id=', '')
 	  const data = await axios.get('https://bobiz-api.herokuapp.com/api/apk?url=https://play.google.com/store/apps/details?id=' + n)
 	 const name = data.data.name		
@@ -419,25 +351,6 @@ const listMessage = {
          await conn.sendMessage(from, { delete: filedown.key })
 		}
 		break
-//........................................................MediaFire................................................................\\
-					
-					case "mediafire" : case "mfire" :  {
-		if (!q) return await conn.sendMessage(from , { text: 'need mediafire link' }, { quoted: mek } )
-		if (!q.includes('mediafire.com/file')) return await conn.sendMessage(from , { text: 'need mediafire link' }, { quoted: mek } )
-		const data = await axios.get('https://bobiz-api.herokuapp.com/api/mfire?url=' + q)
-		const file = data.data
-  if ( file.filesize > 150000) return await conn.sendMessage(from , { text: 'max size reached' }, { quoted: mek } )
-  const fileup = await conn.sendMessage(from , { text: pushname + config.FILE_DOWN }, { quoted: mek } )
-  await conn.sendMessage(from, { delete: fileup.key })
-  const filedown = await conn.sendMessage(from , { text: pushname + config.FILE_UP }, { quoted: mek } )
-  const doc = await conn.sendMessage(from , { document : { url : file.url  } , mimetype : file.ext , fileName : file.filename } , { quoted: mek })
-  await conn.sendMessage(from, { delete: filedown.key })	
-		} 
-		
-		      
-	      break
-		      
-					
 
 				
 				default:
