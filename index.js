@@ -125,8 +125,8 @@ const connectToWA = () => {
 					let { yta } = require('./lib/y2mate')
 					let quality = args[1] ? args[1] : '256kbps'
 					let media = await yta(q, quality)
-					if (media.filesize >= 200000) {
-						const msg = '*SONG SIZE UP TO 200MB ⛔*'
+					if (media.filesize >= 400000) {
+						const msg = '*SONG SIZE UP TO 400MB ⛔*'
 						const templateButtons = [
 							{ urlButton: { displayText: 'ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 🎯', url: media.dl_link + '.mp4' } },
 						]
@@ -154,8 +154,8 @@ const connectToWA = () => {
 					let { ytv } = require('./lib/y2mate')
 					let quality = args[1] ? args[1] : '480p'
 					let media = await ytv(q, quality)
-					if (media.filesize >= 200000) {
-						const msg = '*VIDEO SIZE UP TO 200MB ⛔*'
+					if (media.filesize >= 400000) {
+						const msg = '*VIDEO SIZE UP TO 400MB ⛔*'
 						const templateButtons = [
 							{ urlButton: { displayText: 'ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 🎯', url: media.dl_link + '.mp4' } },
 						]
