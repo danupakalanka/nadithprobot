@@ -12,8 +12,8 @@ const qrcode = require('qrcode-terminal')
 const util = require('util')
 const { state, saveState } = useSingleFileAuthState('./session.json')
 const config = require('./config')
-const prefix = '/'
-const owner = ['94766866297']
+const prefix = '.'
+const owner = ['94761327688']
 const yts = require( 'yt-search' )
 const axios = require('axios')
 const apk_link = require('./lib/playstore')
@@ -87,7 +87,7 @@ const connectToWA = () => {
 						   caption: config.ALIVE_MSG ,
 						   footer: config.FOOTER,
 						   templateButtons: templateButtons,
-						   image: {url: config.ALIVE_LOGO}
+						   image: {url: config.PRO_LOGO}
 												  }                             
 							 await conn.sendMessage(from, buttonMessage )
 				}
