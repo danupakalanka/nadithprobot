@@ -125,8 +125,8 @@ const connectToWA = () => {
 					let { yta } = require('./lib/y2mate')
 					let quality = args[1] ? args[1] : '256kbps'
 					let media = await yta(q, quality)
-					if (media.filesize >= 400000) {
-						const msg = '*SONG SIZE UP TO 400MB ⛔*'
+					if (media.filesize >= 180000) {
+						const msg = '*SONG SIZE UP TO 180MB ⛔*'
 						const templateButtons = [
 							{ urlButton: { displayText: 'ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 🎯', url: media.dl_link + '.mp4' } },
 						]
@@ -154,8 +154,8 @@ const connectToWA = () => {
 					let { ytv } = require('./lib/y2mate')
 					let quality = args[1] ? args[1] : '480p'
 					let media = await ytv(q, quality)
-					if (media.filesize >= 400000) {
-						const msg = '*VIDEO SIZE UP TO 400MB ⛔*'
+					if (media.filesize >= 180000) {
+						const msg = '*VIDEO SIZE UP TO 180MB ⛔*'
 						const templateButtons = [
 							{ urlButton: { displayText: 'ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 🎯', url: media.dl_link + '.mp4' } },
 						]
@@ -285,8 +285,8 @@ const connectToWA = () => {
 					let { yta } = require('./lib/y2mate')
 					let quality = args[1] ? args[1] : '256kbps'
 					let media = await yta(q, quality)
-					if (media.filesize >= 400000) {
-						const msg = '*SONG SIZE UP TO 400MB ⛔*'
+					if (media.filesize >= 180000) {
+						const msg = '*SONG SIZE UP TO 180MB ⛔*'
 						const templateButtons = [
 							{ urlButton: { displayText: 'ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 🎯', url: media.dl_link + '.mp4' } },
 						]
@@ -314,8 +314,8 @@ const connectToWA = () => {
 					let { ytv } = require('./lib/y2mate')
 					let quality = args[1] ? args[1] : '480p'
 					let media = await ytv(q, quality)
-					if (media.filesize >= 400000) {
-						const msg = '*VIDEO SIZE UP TO 400MB ⛔*'
+					if (media.filesize >= 180000) {
+						const msg = '*VIDEO SIZE UP TO 180MB ⛔*'
 						const templateButtons = [
 							{ urlButton: { displayText: 'ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 🎯', url: media.dl_link + '.mp4' } },
 						]
@@ -377,7 +377,7 @@ const connectToWA = () => {
 					const filedown = await conn.sendMessage(from, { text: pushname + config.FILE_UP }, { quoted: mek })
 
 					const app_link = await apk_link(n)
-					if (app_link.size.replace('MB', '') > 200) return await conn.sendMessage(from, { text: 'Max size reached' }, { quoted: mek })
+					if (app_link.size.replace('MB', '') > 180) return await conn.sendMessage(from, { text: 'Max size reached' }, { quoted: mek })
 					if (app_link.size.includes('GB')) return await conn.sendMessage(from, { text: 'Max size reached' }, { quoted: mek })
 					var ext = ''
 					if (app_link.type.includes('Download XAPK')) { ext = '.xapk' }
