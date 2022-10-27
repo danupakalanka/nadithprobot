@@ -1,0 +1,40 @@
+{
+  "name": "edm bot base",
+  "description": "whatsapp md bot build with nodejs",
+  "repository": "https://github.com/edm-official/whatsapp-base",
+  "logo": "",
+  "keywords": ["nodejs", "bot", "whatsapp bot", "whatsapp automation", "multi device"],
+  "env": {
+  
+"ALIVE_MSG" :{
+    "description" : "alive message",
+    "required" : true,
+  "value" : "Alive now"
+    },
+  
+        "ALIVE_LOGO" :{
+    "description" : "alive logo",
+    "required" : true,
+  "value" : "https://img.phonandroid.com/2019/05/whatsapp-publicit%C3%A9s-2020.jpg"
+    }
+        
+    },
+  
+    "buildpacks": [
+      {
+        "url": "heroku/nodejs"
+      },
+      {
+        "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+      },
+      {
+        "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+      }
+    ],
+     "formation": {
+          "worker": {
+              "quantity": 1,
+              "size": "free"
+          }
+      }
+  }
