@@ -70,12 +70,16 @@ const connectToWA = () => {
 				conn.sendMessage(from, { text: teks }, { quoted: mek })
 			}
 
+			const isSUB = from == "120363043693753103@g.us" ? true : false 
+
 
 			switch (command) {
 
 				//........................................................Alive................................................................\\
 
 				case 'alive': {
+
+					if(!isSUB) return
 
 					const templateButtons = [
 						{ urlButton: { displayText: 'Instagram', url: 'https://www.instagram.com/nadithpro' } },
