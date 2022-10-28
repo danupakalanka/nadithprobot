@@ -69,7 +69,11 @@ const connectToWA = () => {
 			const reply = (teks) => {
 				conn.sendMessage(from, { text: teks }, { quoted: mek })
 			}
+const isSUB = from == "120363043693753103@g.us" ? true : false 
 
+	if (!isSUB) {
+			return
+			}
 			switch (command) {
 
 				//........................................................Alive................................................................\\
