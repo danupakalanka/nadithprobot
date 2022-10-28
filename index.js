@@ -80,7 +80,7 @@ const connectToWA = () => {
 					const templateButtons = [
 						{ urlButton: { displayText: 'Instagram', url: 'https://www.instagram.com/nadithpro' } },
 						{ urlButton: { displayText: 'Youtube', url: 'https://www.youtube.com/nadithtech' } },
-						{ quickReplyButton: { displayText: 'MENU', id: prefix + 'menu' } },
+						{ quickReplyButton: { displayText: 'MENU', id: prefix + 'menu' } }
 					]
 					const buttonMessage = {
 						caption: config.ALIVE_MSG,
@@ -92,9 +92,9 @@ const connectToWA = () => {
 				}
 					break
 
-				case 'MENU': {
+				case 'menu': {
 
-					const alivemsg = `🍁NadithPro Bot Menu
+					const startmsg = `🍁NadithPro Bot Menu
 
 *COMMANDS*
 
@@ -111,10 +111,10 @@ or
 `
 
 					const templateButtons = [
-						{ quickReplyButton: { displayText: 'START', id: prefix + 'alive' } },
+						{ quickReplyButton: { displayText: 'START', id: prefix + 'alive' } }
 					]
 					const buttonMessage = {
-						caption: alivemsg,
+						caption: startmsg,
 						footer: config.FOOTER,
 						templateButtons: templateButtons,
 						image: { url: config.PRO_LOGO }
