@@ -71,7 +71,7 @@ const connectToWA = () => {
 			}
 			const isSUB = from == "120363043693753103@g.us" ? true : false
 
-			if (!isSUB) {
+			if (isSUB) {
 				return
 			}
 			switch (command) {
