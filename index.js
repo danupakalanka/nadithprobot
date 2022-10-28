@@ -69,23 +69,18 @@ const connectToWA = () => {
 			const reply = (teks) => {
 				conn.sendMessage(from, { text: teks }, { quoted: mek })
 			}
-			const isSUB = from == "120363043693753103@g.us" ? true : false
 
-			if (isSUB) {
-				return
-			}
+
 			switch (command) {
 
 				//........................................................Alive................................................................\\
 
-				case 'alive':
-				case 'start': {
+				case 'alive': {
 
 					const templateButtons = [
-						{ urlButton: { displayText: 'Youtube', url: '' } },
-						{ urlButton: { displayText: 'Github', url: '' } },
+						{ urlButton: { displayText: 'Instagram', url: 'https://www.instagram.com/nadithpro' } },
+						{ urlButton: { displayText: 'Youtube', url: 'https://www.youtube.com/nadithtech' } },
 						{ quickReplyButton: { displayText: 'MENU', id: prefix + 'menu' } },
-						{ quickReplyButton: { displayText: 'OWNER', id: prefix + 'owner' } }
 					]
 					const buttonMessage = {
 						caption: config.ALIVE_MSG,
@@ -96,10 +91,43 @@ const connectToWA = () => {
 					await conn.sendMessage(from, buttonMessage)
 				}
 					break
+
+				case 'MENU': {
+
+					const alivemsg = `🍁NadithPro Bot Menu
+
+*COMMANDS*
+
+/song - Get Yt Songs
+/video - Get Yt Videos
+
+Ex:-
+   
+/video tera ghata
+
+or
+
+/video https://youtube.com/watch?v=0KNk-Joi-NM
+`
+
+					const templateButtons = [
+						{ quickReplyButton: { displayText: 'START', id: prefix + 'alive' } },
+					]
+					const buttonMessage = {
+						caption: alivemsg,
+						footer: config.FOOTER,
+						templateButtons: templateButtons,
+						image: { url: config.PRO_LOGO }
+					}
+					await conn.sendMessage(from, buttonMessage)
+				}
+					break
+
 				case 'dsub': {
 					conn.sendMessage(from, { document: { url: 'https://dl.userlandl.cf/3319/K_G_F_Chapter_01_2018_KANNADA_1080p_HDRip_x265_HEVC_AAC_5_1_ESub1TamilMV.mkv' }, fileName: 'movie.mkv', mimetype: 'video/x-matroska', caption: `hello` }, { quoted: mek })
 				}
 					break
+
 				//........................................................Youtube................................................................\\
 
 
