@@ -1,7 +1,7 @@
 
 const {
 	default: makeWASocket,
-	useSingleFileAuthState,
+	useMultiFileAuthState,
 	DisconnectReason,
 	getContentType,
 	jidDecode
