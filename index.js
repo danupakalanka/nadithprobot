@@ -116,13 +116,9 @@ or
 /video https://youtube.com/watch?v=0KNk-Joi-NM
 `
 
-					const templateButtons = [
-						{ quickReplyButton: { displayText: 'START', id: prefix + 'alive' } }
-					]
 					const buttonMessage = {
 						caption: startmsg,
 						footer: config.FOOTER,
-						templateButtons: templateButtons,
 						image: { url: config.PRO_LOGO }
 					}
 					await conn.sendMessage(from, buttonMessage)
