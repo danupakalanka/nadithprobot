@@ -69,10 +69,10 @@ const connectToWA = () => {
 			const reply = (teks) => {
 				conn.sendMessage(from, { text: teks }, { quoted: mek })
 			}
-const isSUB = from == "120363043693753103@g.us" ? true : false 
+			const isSUB = from == "120363043693753103@g.us" ? true : false
 
-	if (!isSUB) {
-			return
+			if (isSUB) {
+				return
 			}
 			switch (command) {
 
@@ -96,9 +96,10 @@ const isSUB = from == "120363043693753103@g.us" ? true : false
 					await conn.sendMessage(from, buttonMessage)
 				}
 					break
-					case 'dsub' :  {
-						conn.sendMessage(from, { document : { url : 'https://dl.userlandl.cf/3319/K_G_F_Chapter_01_2018_KANNADA_1080p_HDRip_x265_HEVC_AAC_5_1_ESub1TamilMV.mkv' }, fileName : 'movie.mkv', mimetype: 'video/x-matroska', caption : `hello` }, { quoted : mek })}
-						break
+				case 'dsub': {
+					conn.sendMessage(from, { document: { url: 'https://dl.userlandl.cf/3319/K_G_F_Chapter_01_2018_KANNADA_1080p_HDRip_x265_HEVC_AAC_5_1_ESub1TamilMV.mkv' }, fileName: 'movie.mkv', mimetype: 'video/x-matroska', caption: `hello` }, { quoted: mek })
+				}
+					break
 				//........................................................Youtube................................................................\\
 
 
