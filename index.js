@@ -98,6 +98,8 @@ const connectToWA = () => {
 
 				case 'menu': {
 
+					if(!isSUB) return
+
 					const startmsg = `🍁NadithPro Bot Menu
 
 *COMMANDS*
@@ -127,15 +129,13 @@ or
 				}
 					break
 
-				case 'dsub': {
-					conn.sendMessage(from, { document: { url: 'https://dl.userlandl.cf/3319/K_G_F_Chapter_01_2018_KANNADA_1080p_HDRip_x265_HEVC_AAC_5_1_ESub1TamilMV.mkv' }, fileName: 'movie.mkv', mimetype: 'video/x-matroska', caption: `hello` }, { quoted: mek })
-				}
-					break
 
 				//........................................................Youtube................................................................\\
 
 
 				case 'song': {
+
+					if(!isSUB) return
 
 					conn.sendMessage(from, { react: { text: '🎧', key: mek.key } })
 					if (!q) return reply('Example : ' + prefix + command + ' Tera Ghata')
@@ -159,6 +159,9 @@ or
 
 
 				case 'ytdoc': {
+
+					if(!isSUB) return
+
 					await conn.sendMessage(from, { react: { text: '⬇️', key: mek.key } })
 					if (!q.includes('youtu')) return await conn.sendMessage(from, { text: '*Need YouTube link*' }, { quoted: mek })
 					let { yta } = require('./lib/y2mate')
@@ -188,6 +191,9 @@ or
 					break
 
 				case 'ytdocmp4': {
+
+					if(!isSUB) return
+
 					await conn.sendMessage(from, { react: { text: '⬇️', key: mek.key } })
 					if (!q.includes('youtu')) return await conn.sendMessage(from, { text: '*Need yt link*' }, { quoted: mek })
 					let { ytv } = require('./lib/y2mate')
@@ -217,6 +223,9 @@ or
 					break
 
 				case 'video': {
+
+					if(!isSUB) return
+
 					conn.sendMessage(from, { react: { text: '🔍', key: mek.key } })
 					if (!q) return reply('Example : ' + prefix + command + ' Tera Ghata')
 					let yts = require("yt-search")
@@ -319,6 +328,9 @@ or
 					break
 
 				case 'ytmp3': {
+
+					if(!isSUB) return
+
 					await conn.sendMessage(from, { react: { text: '⬇️', key: mek.key } })
 					if (!q.includes('youtu')) return await conn.sendMessage(from, { text: '*Need yt link*' }, { quoted: mek })
 					let { yta } = require('./lib/y2mate')
@@ -348,6 +360,9 @@ or
 					break
 
 				case 'ytmp4': {
+
+					if(!isSUB) return
+
 					await conn.sendMessage(from, { react: { text: '⬇️', key: mek.key } })
 					if (!q.includes('youtu')) return await conn.sendMessage(from, { text: '*Need yt link*' }, { quoted: mek })
 					let { ytv } = require('./lib/y2mate')
@@ -379,6 +394,7 @@ or
 				//........................................................Playstore................................................................\\
 
 				case 'apk': case 'findapk': {
+
 					if (!q) return await conn.sendMessage(from, { text: 'Need Query' }, { quoted: mek })
 					const data2 = await axios.get('https://bobiz-api.herokuapp.com/api/playstore?q=' + q)
 					const data = data2.data
