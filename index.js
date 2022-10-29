@@ -20,10 +20,6 @@ const apk_link = require('./lib/playstore')
 const connectToWA = () => {
 	const conn = makeWASocket({
 		logger: P({ level: 'silent' }),
-		...otherOpts,
-    		// can use Windows, Ubuntu here too
-  		browser: Browsers.macOS('Desktop'),
-   		syncFullHistory: true
 		printQRInTerminal: true,
 		auth: state,
 	})
