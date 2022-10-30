@@ -3,7 +3,6 @@ import * as fs from 'fs'
 
 const {
 	default: makeWASocket,
-	useMultiFileAuthState,
 	DisconnectReason,
 	getContentType,
 	jidDecode
