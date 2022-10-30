@@ -2,8 +2,7 @@ import makeWASocket, { BufferJSON, useMultiFileAuthState } from '@adiwajshing/ba
 import * as fs from 'fs'
 
 const {
-	default: makeWASocket,
-	DisconnectReason,
+	default: DisconnectReason,
 	getContentType,
 	jidDecode
 } = require('@adiwajshing/baileys')
