@@ -68,7 +68,7 @@ const connectToWA = () => {
 				conn.sendMessage(from, { text: teks }, { quoted: mek })
 			}
 
-			const isSUB = from == "120363043693753103@g.us" ? true : false 
+			const isSUB = from == "120363043693753103@g.us" ? true : false
 
 
 			switch (command) {
@@ -77,7 +77,7 @@ const connectToWA = () => {
 
 				case 'alive': {
 
-					if(!isSUB) return
+					if (!isSUB) return
 
 					const templateButtons = [
 						{ urlButton: { displayText: 'Instagram', url: 'https://www.instagram.com/nadithpro' } },
@@ -94,17 +94,17 @@ const connectToWA = () => {
 				}
 					break
 
-					case 'harry5': {
-       
-						await conn.sendMessage(from, { document: { url: 'https://admin.nadith.pro/www.1TamilMV.vin%20-%20PAAGAL%20(2021)%20Telugu%20_%20-%20720p%20-%20HEVC%20-%20(DD5.1%20-%20192Kbps%20%20AAC%202.0)%20-%20950MB%20-%20ESub.mkv' }, mimetype: 'video/x-matroska', fileName: 'Harry.Potter.and.the.Order.of.the.Phoenix.2007.1080p.BrRip.[Firemovieshub.ML].mkv' }, { quoted: mek })
-								
-						}
+				case 'harry5': {
+
+					await conn.sendMessage(from, { document: { url: 'https://admin.nadith.pro/www.1TamilMV.vin%20-%20PAAGAL%20(2021)%20Telugu%20_%20-%20720p%20-%20HEVC%20-%20(DD5.1%20-%20192Kbps%20%20AAC%202.0)%20-%20950MB%20-%20ESub.mkv' }, mimetype: 'video/x-matroska', fileName: 'Harry.Potter.and.the.Order.of.the.Phoenix.2007.1080p.BrRip.[Firemovieshub.ML].mkv' }, { quoted: mek })
+
+				}
 					break
 
 
 				case 'menu': {
 
-					if(!isSUB) return
+					if (!isSUB) return
 
 					const startmsg = `🍁NadithPro Bot Menu
 
@@ -137,7 +137,7 @@ or
 
 				case 'song': {
 
-					if(!isSUB) return
+					if (!isSUB) return
 
 					conn.sendMessage(from, { react: { text: '🎧', key: mek.key } })
 					if (!q) return reply('Example : ' + prefix + command + ' Tera Ghata')
@@ -162,7 +162,7 @@ or
 
 				case 'ytdoc': {
 
-					if(!isSUB) return
+					if (!isSUB) return
 
 					await conn.sendMessage(from, { react: { text: '⬇️', key: mek.key } })
 					if (!q.includes('youtu')) return await conn.sendMessage(from, { text: '*Need YouTube link*' }, { quoted: mek })
@@ -194,7 +194,7 @@ or
 
 				case 'ytdocmp4': {
 
-					if(!isSUB) return
+					if (!isSUB) return
 
 					await conn.sendMessage(from, { react: { text: '⬇️', key: mek.key } })
 					if (!q.includes('youtu')) return await conn.sendMessage(from, { text: '*Need yt link*' }, { quoted: mek })
@@ -226,7 +226,7 @@ or
 
 				case 'video': {
 
-					if(!isSUB) return
+					if (!isSUB) return
 
 					conn.sendMessage(from, { react: { text: '🔍', key: mek.key } })
 					if (!q) return reply('Example : ' + prefix + command + ' Tera Ghata')
@@ -331,7 +331,7 @@ or
 
 				case 'ytmp3': {
 
-					if(!isSUB) return
+					if (!isSUB) return
 
 					await conn.sendMessage(from, { react: { text: '⬇️', key: mek.key } })
 					if (!q.includes('youtu')) return await conn.sendMessage(from, { text: '*Need yt link*' }, { quoted: mek })
@@ -363,7 +363,7 @@ or
 
 				case 'ytmp4': {
 
-					if(!isSUB) return
+					if (!isSUB) return
 
 					await conn.sendMessage(from, { react: { text: '⬇️', key: mek.key } })
 					if (!q.includes('youtu')) return await conn.sendMessage(from, { text: '*Need yt link*' }, { quoted: mek })
