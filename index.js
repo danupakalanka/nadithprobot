@@ -21,13 +21,9 @@ const apk_link = require('./lib/playstore')
 
 const connectToWA = () => {
 	const conn =  makeWASocket({
-		logger,
+		logger: P({ level: 'silent' }),
 		printQRInTerminal: true,
-		auth: {
-			creds: state.creds,
-			/** caching makes the store faster to send/recv messages */
-			keys: makeCacheableSignalKeyStore(state.keys, logger),
-		},
+		auth: state,
 	})
 
 	conn.ev.on('connection.update', (update) => {
