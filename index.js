@@ -18,7 +18,7 @@ const yts = require('yt-search')
 const axios = require('axios')
 const apk_link = require('./lib/playstore')
 
-const { version, isLatest } = await fetchLatestBaileysVersion()
+const { version, isLatest } = fetchLatestBaileysVersion()
 	console.log(`using WA v${version.join('.')}, isLatest: ${isLatest}`)
 
 const connectToWA = () => {
