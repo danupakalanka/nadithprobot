@@ -1,8 +1,8 @@
-import makeWASocket, { BufferJSON, useMultiFileAuthState } from '@adiwajshing/baileys'
-import * as fs from 'fs'
 
 const {
-	default: DisconnectReason,
+	default: makeWASocket,
+	useMultiFileAuthState,
+	DisconnectReason,
 	getContentType,
 	jidDecode
 } = require('@adiwajshing/baileys')
