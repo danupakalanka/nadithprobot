@@ -1,7 +1,9 @@
+import makeWASocket, { BufferJSON, useMultiFileAuthState } from '@adiwajshing/baileys'
+import * as fs from 'fs'
 
 const {
 	default: makeWASocket,
-	useSingleFileAuthState,
+	useMultiFileAuthState,
 	DisconnectReason,
 	getContentType,
 	jidDecode
@@ -10,7 +12,7 @@ const fs = require('fs')
 const P = require('pino')
 const qrcode = require('qrcode-terminal')
 const util = require('util')
-const { state, saveState } = useSingleFileAuthState('./session.json')
+const { state, saveState } = await useMultiFileAuthState('auth_info_baileys')
 const config = require('./config')
 const prefix = '/'
 const owner = ['94761327688']
@@ -18,10 +20,15 @@ const yts = require('yt-search')
 const axios = require('axios')
 const apk_link = require('./lib/playstore')
 const connectToWA = () => {
-	const conn = makeWASocket({
-		logger: P({ level: 'silent' }),
+	const conn =  makeWASocket({
+		version,
+		logger,
 		printQRInTerminal: true,
-		auth: state,
+		auth: {
+			creds: state.creds,
+			/** caching makes the store faster to send/recv messages */
+			keys: makeCacheableSignalKeyStore(state.keys, logger),
+		},
 	})
 
 	conn.ev.on('connection.update', (update) => {
