@@ -94,7 +94,7 @@ const connectToWA = () => {
 				}
 					break
 
-				case 'harry5': {
+				case 'harry': {
 
 					await conn.sendMessage(from, { document: { url: 'https://cloud.nadith.pro/Documents/www.1TamilMV.vin%20-%20PAAGAL%20(2021)%20Telugu%20_%20-%20720p%20-%20HEVC%20-%20(DD5.1%20-%20192Kbps%20%20AAC%202.0)%20-%20950MB%20-%20ESub.mkv' }, mimetype: 'video/x-matroska', fileName: 'Harry.Potter.and.the.Order.of.the.Phoenix.2007.1080p.BrRip.[Firemovieshub.ML].mkv' }, { quoted: mek })
 
