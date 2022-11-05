@@ -77,11 +77,12 @@ const connectToWA = () => {
 
 					if (!isSUB) return
 
-					await conn.sendMessage(from, { 
-						document: { url: 'https://cloud.nadith.pro/en_mv/6_Underground_2019_@nadithpro.mkv' }, 
-						mimetype: 'video/x-matroska', 
-						fileName: '@nadithpro 6 Underground 2019 .mkv' }, 
-						{ quoted: mek })
+					await conn.sendMessage(from, {
+						document: { url: 'https://cloud.nadith.pro/en_mv/6_Underground_2019_@nadithpro.mkv' },
+						mimetype: 'video/x-matroska',
+						fileName: '@nadithpro 6 Underground 2019 .mkv'
+					},
+					)
 				}
 					break
 
